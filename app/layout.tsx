@@ -27,7 +27,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <main className="min-h-screen p-4">
+          <header className="mb-8 container mx-auto">
+            <h1 className="text-4xl font-bold">Davat</h1>
+          </header>
+          {children}
+        </main>
       </body>
     </html>
   );
