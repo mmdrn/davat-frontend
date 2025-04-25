@@ -1,7 +1,7 @@
 "use client";
 
 import { CircleX } from "lucide-react";
-import { IPost } from "./types/post";
+import { IPost } from "../types/post";
 import Post from "@/components/post";
 import PostSkeleton from "@/components/post-skeleton";
 import usePosts from "@/hooks/usePosts";
@@ -27,7 +27,7 @@ export default function Home() {
   // Show loading skeleton or error message while data is loading or if there's an error
   if (variables.isLoading || variables.error) {
     return (
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="container mx-auto grid grid-cols-1 md:grid-coFls-2 lg:grid-cols-3">
         {/* Generate 9 skeleton posts while loading */}
         {[...Array(9)].map((_, index) => (
           <PostSkeleton bg={bgColors[index % bgColors.length]} key={index} />

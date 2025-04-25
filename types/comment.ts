@@ -5,4 +5,5 @@ export interface IComment {
   authorId: string;
   content: string;
   likes: string[];
+  replies: IComment[];
 }

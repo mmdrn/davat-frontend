@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { IPost } from "@/app/types/post";
+import { IPost } from "@/types/post";
 import { Heart, HeartHandshake, MessageCircle } from "lucide-react";
 
 interface PostProps {
