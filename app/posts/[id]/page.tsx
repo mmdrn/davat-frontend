@@ -49,6 +49,7 @@ export default function PostDetail() {
             </button>
           )}
         </div>
+        
         {variables.comments?.map((comment: IComment) => (
           <CommentComponent
             key={comment.id}
