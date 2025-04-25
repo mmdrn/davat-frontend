@@ -13,7 +13,7 @@ export default function Post({ post, background, onLike }: PostProps) {
   // Link component that wraps the entire post and navigates to post details
   return (
     <Link
-      href={`/posts/${post.id}`}
+      href={`/${post.id}`}
       className={`flex flex-col items-start justify-start overflow-hidden h-[calc(100vh/3)] relative hover:pt-7 transition-all duration-500 ${background}`}
     >
       <div className="flex flex-col items-start justify-start gap-4 p-6 text-white">

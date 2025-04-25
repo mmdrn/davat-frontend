@@ -45,7 +45,7 @@ export default function usePostDetails() {
         `http://localhost:3000/api/posts/${params.id}/comments`,
         {
           parentCommentId: replyTo,
-          author: "6809e7025e7e0b0399ecc081",
+          author: "507f1f77bcf86cd799439011",
           content: content,
         }
       );
@@ -63,7 +63,7 @@ export default function usePostDetails() {
       const { data } = await axios.post(
         `http://localhost:3000/api/posts/680a841ba7262572a51e0a17/comments/${commentId}/like`,
         {
-          userId: "6809e7025e7e0b0399ecc081",
+          userId: "507f1f77bcf86cd799439011",
         }
       );
       return data;
