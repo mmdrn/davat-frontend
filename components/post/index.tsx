@@ -45,7 +45,7 @@ export default function Post({ post, background, onLike }: PostProps) {
           </button>
           <span className="flex items-center justify-start gap-2">
             <MessageCircle />
-            {post.comments.length} Comments
+            {post.commentsCount} Comments
           </span>
         </div>
       </div>

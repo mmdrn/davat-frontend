@@ -1,10 +1,8 @@
-import { IComment } from "./comment";
-
 export interface IPost {
   id: string;
   title: string;
   content: string;
   author: string;
   likes: string[];
-  comments: IComment[];
+  commentsCount: number;
 }
