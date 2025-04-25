@@ -10,6 +10,7 @@ export default function usePostDetails() {
   const [newComment, setNewComment] = useState("");
   const [replyTo, setReplyTo] = useState<string | null>(null);
 
+  // Fetch post details
   const {
     data: post,
     isLoading: postLoading,
@@ -18,12 +19,13 @@ export default function usePostDetails() {
     queryKey: ["post", params.id],
     queryFn: async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/api/posts/${params.id}`
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${params.id}`
       );
       return data;
     },
   });
 
+  // Fetch post comments
   const {
     data: comments,
     isLoading: commentsLoading,
@@ -33,16 +35,17 @@ export default function usePostDetails() {
     queryKey: ["comments", params.id],
     queryFn: async () => {
       const { data } = await axios.get(
-        `http://localhost:3000/api/posts/${params.id}/comments`
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${params.id}/comments`
       );
       return data;
     },
   });
 
+  // Mutation for submitting a new comment
   const submitComment = useMutation({
     mutationFn: async (content: string) => {
       const { data } = await axios.post(
-        `http://localhost:3000/api/posts/${params.id}/comments`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${params.id}/comments`,
         {
           parentCommentId: replyTo,
           author: "507f1f77bcf86cd799439011",
@@ -58,10 +61,11 @@ export default function usePostDetails() {
     },
   });
 
+  // Mutation for liking a comment
   const likeComment = useMutation({
     mutationFn: async (commentId: string) => {
       const { data } = await axios.post(
-        `http://localhost:3000/api/posts/680a841ba7262572a51e0a17/comments/${commentId}/like`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/680a841ba7262572a51e0a17/comments/${commentId}/like`,
         {
           userId: "507f1f77bcf86cd799439011",
         }

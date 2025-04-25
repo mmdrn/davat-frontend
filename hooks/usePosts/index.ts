@@ -10,9 +10,12 @@ export default function usePosts() {
   const likeMutation = useMutation({
     mutationFn: async (postId: string) => {
       const userId = "507f1f77bcf86cd799439011"; // Hardcoded user ID for testing
-      return axios.post(`http://localhost:3000/api/posts/${postId}/like`, {
-        userId,
-      });
+      return axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${postId}/like`,
+        {
+          userId,
+        }
+      );
     },
     onSuccess: () => {
       // Invalidate and refetch posts after successful like to update UI
@@ -31,7 +34,9 @@ export default function usePosts() {
   } = useQuery({
     queryKey: ["posts"],
     queryFn: async () => {
-      const response = await axios.get("http://localhost:3000/api/posts");
+      const response = await axios.get(
+        `${process.env.NEXT_PUBLIC_API_URL}/posts`
+      );
       return response.data;
     },
   });
