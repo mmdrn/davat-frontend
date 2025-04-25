@@ -5,7 +5,8 @@ import CommentComponent from "@/components/comment";
 import { IComment } from "@/types/comment";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { MessageCircle } from "lucide-react";
+import { ArrowBigLeft, MessageCircle } from "lucide-react";
+import Link from "next/link";
 
 export default function PostDetail() {
   const { variables, set, methods } = usePostDetail();
@@ -22,7 +23,16 @@ export default function PostDetail() {
           {variables.post?.title}
         </h1>
       </div>
-      <div className="max-w-full w-[900px] px-2 mx-auto font-medium">
+      <div className="w-[900px] max-w-full mx-auto mb-3">
+        <Link
+          href={"/"}
+          className="bg-zinc-100 rounded-md px-4 py-2 flex items-center justify-start w-fit text-xs gap-1"
+        >
+          <ArrowBigLeft className="size-4" />
+          back to posts
+        </Link>
+      </div>
+      <div className="max-w-full w-[900px] mx-auto font-medium">
         {variables.post?.description}
       </div>
 
