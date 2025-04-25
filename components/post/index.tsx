@@ -34,7 +34,9 @@ export default function Post({ post, background, onLike }: PostProps) {
             }}
           >
             {/* Show different heart icon based on like status */}
-            {post.likes.includes("507f1f77bcf86cd799439011") ? (
+            {post.likes.includes(
+              process.env.NEXT_PUBLIC_USER_ID || "507f1f77bcf86cd799439011"
+            ) ? (
               <HeartHandshake />
             ) : (
               <Heart />

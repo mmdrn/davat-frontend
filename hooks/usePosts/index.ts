@@ -9,7 +9,8 @@ export default function usePosts() {
   // Mutation hook for handling post likes
   const likeMutation = useMutation({
     mutationFn: async (postId: string) => {
-      const userId = "507f1f77bcf86cd799439011"; // Hardcoded user ID for testing
+      const userId =
+        process.env.NEXT_PUBLIC_USER_ID || "507f1f77bcf86cd799439011";
       return axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/posts/${postId}/like`,
         {

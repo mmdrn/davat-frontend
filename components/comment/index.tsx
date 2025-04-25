@@ -56,13 +56,17 @@ export default function Comment({
         <button
           onClick={() => onLike(comment.id)}
           className={`text-sm text-sky-900 flex items-center justify-start gap-2 px-5 py-2 rounded-md cursor-pointer ${
-            comment.likes.includes("507f1f77bcf86cd799439011")
+            comment.likes.includes(
+              process.env.NEXT_PUBLIC_USER_ID || "507f1f77bcf86cd799439011"
+            )
               ? "bg-sky-900 text-white"
               : "bg-sky-50/80"
           }`}
           disabled={isLikingComment}
         >
-          {comment.likes.includes("507f1f77bcf86cd799439011") ? (
+          {comment.likes.includes(
+            process.env.NEXT_PUBLIC_USER_ID || "507f1f77bcf86cd799439011"
+          ) ? (
             <HeartHandshake />
           ) : (
             <Heart />
@@ -88,13 +92,19 @@ export default function Comment({
                 <button
                   onClick={() => onLike(reply.id)}
                   className={`text-sm text-sky-900 flex items-center justify-start gap-2 px-5 py-2 rounded-md cursor-pointer ${
-                    reply.likes.includes("507f1f77bcf86cd799439011")
+                    reply.likes.includes(
+                      process.env.NEXT_PUBLIC_USER_ID ||
+                        "507f1f77bcf86cd799439011"
+                    )
                       ? "bg-sky-900 text-white"
                       : "bg-sky-50/80"
                   }`}
                   disabled={isLikingComment}
                 >
-                  {reply.likes.includes("507f1f77bcf86cd799439011") ? (
+                  {reply.likes.includes(
+                    process.env.NEXT_PUBLIC_USER_ID ||
+                      "507f1f77bcf86cd799439011"
+                  ) ? (
                     <HeartHandshake />
                   ) : (
                     <Heart />

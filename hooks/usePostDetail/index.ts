@@ -48,7 +48,7 @@ export default function usePostDetails() {
         `${process.env.NEXT_PUBLIC_API_URL}/posts/${params.id}/comments`,
         {
           parentCommentId: replyTo,
-          author: "507f1f77bcf86cd799439011",
+          author: process.env.NEXT_PUBLIC_USER_ID || "507f1f77bcf86cd799439011",
           content: content,
         }
       );
@@ -65,9 +65,9 @@ export default function usePostDetails() {
   const likeComment = useMutation({
     mutationFn: async (commentId: string) => {
       const { data } = await axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/posts/680a841ba7262572a51e0a17/comments/${commentId}/like`,
+        `${process.env.NEXT_PUBLIC_API_URL}/posts/${post.id}/comments/${commentId}/like`,
         {
-          userId: "507f1f77bcf86cd799439011",
+          userId: process.env.NEXT_PUBLIC_USER_ID || "507f1f77bcf86cd799439011",
         }
       );
       return data;
